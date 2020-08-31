@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { getRandomHexString } from './utils'
 
 const StyledSwitch = styled.div`
-  display: flex;
+  display: ${({ inline }) => inline ? 'inline-flex' : 'flex'};
   align-items: center;
   flex-direction: ${({ labelAlignment }) => labelAlignment === 'right'
     ? 'row'
@@ -58,6 +58,7 @@ function Switch(props) {
   const {
     defaultActive = false,
     disabled = false,
+    inline = false,
     activeStateIcon,
     inactiveStateIcon,
     label,
@@ -76,7 +77,11 @@ function Switch(props) {
   })
 
   return (
-    <StyledSwitch disabled={disabled} labelAlignment={labelAlignment}>
+    <StyledSwitch
+      disabled={disabled}
+      inline={inline}
+      labelAlignment={labelAlignment}
+    >
       <SwitchButton
         active={active}
         onClick={() => setActive(!active)}
@@ -99,6 +104,7 @@ function Switch(props) {
 Switch.propTypes = {
   defaultActive: PropTypes.bool,
   disabled: PropTypes.bool,
+  inline: PropTypes.bool,
   activeStateIcon: PropTypes.element,
   inactiveStateIcon: PropTypes.element,
   labelAlignment: PropTypes.oneOf(['left', 'right']),
