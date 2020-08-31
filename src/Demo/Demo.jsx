@@ -14,8 +14,10 @@ function Demo() {
   return (
     <StyledDemo>
       <Switch
+        label='Switch'
         activeStateIcon={<FlashIcon />}
         inactiveStateIcon={<FlashOffIcon />}
+        onChange={(isActive) => console.log(`I'm ${isActive ? 'truthy' : 'falsy'}.`)}
       />
     </StyledDemo>
   )

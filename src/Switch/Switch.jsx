@@ -1,9 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const StyledSwitch = styled.div`
   display: flex;
   align-items: center;
+
+  opacity: ${({ disabled }) => disabled ? '0.6' : '1'};
 
   label {
     font-size: 1.8rem;
@@ -44,16 +47,28 @@ const SwitchIndicator = styled.span`
   margin: 0 0.4rem;
 `
 
-function Switch({ activeStateIcon, inactiveStateIcon }) {
-  const [active, setActive] = useState(false)
+function Switch(props) {
+  const {
+    defaultActive = false,
+    disabled = false,
+    activeStateIcon,
+    inactiveStateIcon,
+    label,
+    onChange
+  } = props
+
+  const [active, setActive] = useState(defaultActive)
+
+  useEffect(() => { !disabled && onChange(active) })
 
   return (
-    <StyledSwitch>
+    <StyledSwitch disabled={disabled}>
       <SwitchButton
         active={active}
         onClick={() => setActive(!active)}
         role='switch'
         aria-checked={active}
+        disabled={disabled}
         id='switch'
       >
         <SwitchIndicator>
@@ -61,9 +76,18 @@ function Switch({ activeStateIcon, inactiveStateIcon }) {
         </SwitchIndicator>
       </SwitchButton>
 
-      <label htmlFor='switch'>Switch</label>
+      {label && <label htmlFor='switch'>Switch</label>}
     </StyledSwitch>
   )
+}
+
+Switch.propTypes = {
+  defaultActive: PropTypes.bool,
+  disabled: PropTypes.bool,
+  activeStateIcon: PropTypes.element,
+  inactiveStateIcon: PropTypes.element,
+  label: PropTypes.string,
+  onChange: PropTypes.func
 }
 
 export default Switch
