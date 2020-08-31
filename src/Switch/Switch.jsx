@@ -7,12 +7,17 @@ import { getRandomHexString } from './utils'
 const StyledSwitch = styled.div`
   display: flex;
   align-items: center;
+  flex-direction: ${({ labelAlignment }) => labelAlignment === 'right'
+    ? 'row'
+    : 'row-reverse'};
 
   opacity: ${({ disabled }) => disabled ? '0.6' : '1'};
 
   label {
     font-size: 1.8rem;
-    margin-left: 1.2rem;
+    ${({ labelAlignment }) => labelAlignment === 'right'
+      ? 'margin-left: 2rem;'
+      : 'margin-right: 2rem;'}
   }
 `
 
@@ -56,6 +61,7 @@ function Switch(props) {
     activeStateIcon,
     inactiveStateIcon,
     label,
+    labelAlignment = 'left',
     ariaLabel,
     onChange
   } = props
@@ -70,7 +76,7 @@ function Switch(props) {
   })
 
   return (
-    <StyledSwitch disabled={disabled}>
+    <StyledSwitch disabled={disabled} labelAlignment={labelAlignment}>
       <SwitchButton
         active={active}
         onClick={() => setActive(!active)}
@@ -95,6 +101,7 @@ Switch.propTypes = {
   disabled: PropTypes.bool,
   activeStateIcon: PropTypes.element,
   inactiveStateIcon: PropTypes.element,
+  labelAlignment: PropTypes.oneOf(['left', 'right']),
   label: PropTypes.string,
   ariaLabel: PropTypes.string,
   onChange: PropTypes.func
