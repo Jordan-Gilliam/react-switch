@@ -1,6 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
+import Demo from './Demo'
+
 import './index.css'
 
 if (process.env.NODE_ENV !== 'production') {
@@ -10,7 +12,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 ReactDOM.render(
   <React.StrictMode>
-    <h1>hello world</h1>
+    <Demo />
   </React.StrictMode>,
   document.getElementById('root')
 )
