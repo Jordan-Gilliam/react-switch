@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
+import { getRandomHexString } from './utils'
+
 const StyledSwitch = styled.div`
   display: flex;
   align-items: center;
@@ -54,12 +56,18 @@ function Switch(props) {
     activeStateIcon,
     inactiveStateIcon,
     label,
+    ariaLabel,
     onChange
   } = props
 
   const [active, setActive] = useState(defaultActive)
+  const switchID = `switch-${getRandomHexString(6)}`
 
-  useEffect(() => { !disabled && onChange(active) })
+  useEffect(() => {
+    !disabled
+      && onChange
+      && onChange(active)
+  })
 
   return (
     <StyledSwitch disabled={disabled}>
@@ -67,16 +75,17 @@ function Switch(props) {
         active={active}
         onClick={() => setActive(!active)}
         role='switch'
+        aria-label={ariaLabel || label}
         aria-checked={active}
         disabled={disabled}
-        id='switch'
+        id={switchID}
       >
         <SwitchIndicator>
           {active ? activeStateIcon : inactiveStateIcon}
         </SwitchIndicator>
       </SwitchButton>
 
-      {label && <label htmlFor='switch'>Switch</label>}
+      {label && <label htmlFor={switchID}>{label}</label>}
     </StyledSwitch>
   )
 }
@@ -87,6 +96,7 @@ Switch.propTypes = {
   activeStateIcon: PropTypes.element,
   inactiveStateIcon: PropTypes.element,
   label: PropTypes.string,
+  ariaLabel: PropTypes.string,
   onChange: PropTypes.func
 }
 
