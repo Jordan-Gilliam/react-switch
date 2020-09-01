@@ -11,7 +11,7 @@ const StyledSwitch = styled.div`
     ? 'row'
     : 'row-reverse'};
 
-  opacity: ${({ disabled }) => disabled ? '0.6' : '1'};
+  opacity: ${({ disabled }) => disabled ? '0.4' : '1'};
 
   label {
     font-size: 1.8rem;
@@ -32,7 +32,13 @@ const SwitchButton = styled.button`
   background: ${({ active }) => active ? '#1f6eff' : '#ccdaf4'};
   border: none;
   border-radius: 4rem;
+  box-shadow: inset 0rem 0rem 0.3rem 0.1rem rgba(0, 0, 0, 0.15);
   outline: none;
+  transition: all 0.2s;
+
+  &:focus {
+    transform: scale(1.1);
+  }
 
   svg {
     height: 1.6rem;
@@ -51,6 +57,7 @@ const SwitchIndicator = styled.span`
 
   background: #ffffff;
   border-radius: 50%;
+  box-shadow: 0.1rem 0.1rem 1rem 0.3rem rgba(0, 0, 0, 0.15);
   margin: 0 0.4rem;
 `
 
