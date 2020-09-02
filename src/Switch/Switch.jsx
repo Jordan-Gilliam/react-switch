@@ -102,6 +102,7 @@ function Switch(props) {
       <SwitchButton
         active={active}
         onClick={() => setActive(!active)}
+        type='button'
         role='switch'
         aria-label={ariaLabel || label}
         aria-checked={active}
