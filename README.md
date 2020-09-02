@@ -45,10 +45,21 @@ For example usage see: `/src/Demo`
 
 ## Styling
 
-Styling is a tricky thing. There are dozens of ways to achieve it, and I'm not dealing with that for now. So, you must change the colors and other properties manually inside `Switch.jsx`. Sorry for that :/
+You can pass an object with the following shape to `ThemeProvider`:
 
-If you want to make it reusable, there are some options to take a look at:
+```javascript
+const theme = {
+  switch: {
+    background: '#ccdaf4',
+    backgroundAccent: '#1f6eff',
+    height: '4rem',
+    width: '8rem',
+    indicatorBackground: '#ffffff',
+    indicatorSize: '3.2rem',
+    indicatorMargin: '0 0.4rem',
+    svgSize: '1.6rem'
+  }
+}
+```
 
-- [ThemeProvider](https://styled-components.com/docs/advanced#theming) from `styled-components`
-- [Inline styling](https://reactjs.org/docs/dom-elements.html#style)
-- [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/--*)
+For more details and example usage, see: `/src/Demo`

@@ -5,31 +5,37 @@ import styled from 'styled-components'
 import { getRandomHexString } from './utils'
 
 const StyledSwitch = styled.div`
-  display: ${({ inline }) => inline ? 'inline-flex' : 'flex'};
+  display: ${props => props.inline ? 'inline-flex' : 'flex'};
   align-items: center;
-  flex-direction: ${({ labelAlignment }) => labelAlignment === 'right'
+  flex-direction: ${props => props.labelAlignment === 'right'
     ? 'row'
     : 'row-reverse'};
 
-  opacity: ${({ disabled }) => disabled ? '0.4' : '1'};
+  opacity: ${props => props.disabled ? '0.4' : '1'};
 
   label {
     font-size: 1.8rem;
-    ${({ labelAlignment }) => labelAlignment === 'right'
+    ${props => props.labelAlignment === 'right'
       ? 'margin-left: 2rem;'
       : 'margin-right: 2rem;'}
   }
 `
 
-const SwitchButton = styled.button`
-  height: 4rem;
-  width: 8rem;
+const SwitchButton = styled.button.attrs(props => ({
+  bgActive: props.theme.switch.backgroundAccent || '#1f6eff',
+  bgInactive: props.theme.switch.background || '#ccdaf4',
+  switchHeight: props.theme.switch.height || '4rem',
+  switchWidth: props.theme.switch.width || '8rem',
+  svgSize: props.theme.switch.svgSize || '1.6rem'
+}))`
+  height: ${props => props.switchHeight};
+  width: ${props => props.switchWidth};
 
   display: flex;
   align-items: center;
-  justify-content: ${({ active }) => active ? 'flex-end' : 'flex-start'};
+  justify-content: ${props => props.active ? 'flex-end' : 'flex-start'};
 
-  background: ${({ active }) => active ? '#1f6eff' : '#ccdaf4'};
+  background: ${props => props.active ? props.bgActive : props.bgInactive};
   border: none;
   border-radius: 4rem;
   box-shadow: inset 0rem 0rem 0.3rem 0.1rem rgba(0, 0, 0, 0.15);
@@ -41,24 +47,28 @@ const SwitchButton = styled.button`
   }
 
   svg {
-    height: 1.6rem;
-    width: 1.6rem;
-    fill: ${({ active }) => active ? '#1f6eff' : '#ccdaf4'};
+    height: ${props => props.svgSize};
+    width: ${props => props.svgSize};
+    fill: ${props => props.active ? props.bgActive : props.bgInactive};
   }
 `
 
-const SwitchIndicator = styled.span`
-  height: 3.2rem;
-  width: 3.2rem;
+const SwitchIndicator = styled.span.attrs((props) => ({
+  indicatorBackground: props.theme.switch.indicatorBackground || '#ffffff',
+  indicatorSize: props.theme.switch.indicatorSize || '3.2rem',
+  indicatorMargin: props.theme.switch.indicatorMargin || '0 0.4rem'
+}))`
+  height: ${props => props.indicatorSize};
+  width: ${props => props.indicatorSize};
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  background: #ffffff;
+  background: ${props => props.indicatorBackground};
   border-radius: 50%;
   box-shadow: 0.1rem 0.1rem 1rem 0.3rem rgba(0, 0, 0, 0.15);
-  margin: 0 0.4rem;
+  margin: ${props => props.indicatorMargin};
 `
 
 function Switch(props) {
