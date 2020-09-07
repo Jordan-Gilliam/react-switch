@@ -22,11 +22,11 @@ const StyledSwitch = styled.div`
 `
 
 const SwitchButton = styled.button.attrs(props => ({
-  bgActive: props.theme.switch.backgroundAccent || '#1f6eff',
-  bgInactive: props.theme.switch.background || '#ccdaf4',
-  switchHeight: props.theme.switch.height || '4rem',
-  switchWidth: props.theme.switch.width || '8rem',
-  svgSize: props.theme.switch.svgSize || '1.6rem'
+  bgActive: props.theme.switch?.backgroundAccent || '#1f6eff',
+  bgInactive: props.theme.switch?.background || '#ccdaf4',
+  switchHeight: props.theme.switch?.height || '4rem',
+  switchWidth: props.theme.switch?.width || '8rem',
+  svgSize: props.theme.switch?.svgSize || '1.6rem'
 }))`
   height: ${props => props.switchHeight};
   width: ${props => props.switchWidth};
@@ -54,9 +54,9 @@ const SwitchButton = styled.button.attrs(props => ({
 `
 
 const SwitchIndicator = styled.span.attrs((props) => ({
-  indicatorBackground: props.theme.switch.indicatorBackground || '#ffffff',
-  indicatorSize: props.theme.switch.indicatorSize || '3.2rem',
-  indicatorMargin: props.theme.switch.indicatorMargin || '0 0.4rem'
+  indicatorBackground: props.theme.switch?.indicatorBackground || '#ffffff',
+  indicatorSize: props.theme.switch?.indicatorSize || '3.2rem',
+  indicatorMargin: props.theme.switch?.indicatorMargin || '0 0.4rem'
 }))`
   height: ${props => props.indicatorSize};
   width: ${props => props.indicatorSize};
