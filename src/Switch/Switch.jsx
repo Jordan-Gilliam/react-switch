@@ -7,14 +7,14 @@ import { getRandomHexString } from './utils'
 const StyledSwitch = styled.div`
   display: ${props => props.inline ? 'inline-flex' : 'flex'};
   align-items: center;
-  flex-direction: ${props => props.labelAlignment === 'right'
-    ? 'row'
-    : 'row-reverse'};
+  justify-content: ${props => props.justifyContent || 'space-between'};
 
   opacity: ${props => props.disabled ? '0.4' : '1'};
 
   label {
     font-size: 1.8rem;
+    order: ${props => props.labelAlignment === 'right' ? '1' : '-1'};
+
     ${props => props.labelAlignment === 'right'
       ? 'margin-left: 2rem;'
       : 'margin-right: 2rem;'}
@@ -76,6 +76,7 @@ function Switch(props) {
     defaultActive = false,
     disabled = false,
     inline = false,
+    justifyContent,
     activeStateIcon,
     inactiveStateIcon,
     label,
@@ -97,6 +98,7 @@ function Switch(props) {
     <StyledSwitch
       disabled={disabled}
       inline={inline}
+      justifyContent={justifyContent}
       labelAlignment={labelAlignment}
     >
       <SwitchButton
@@ -123,6 +125,7 @@ Switch.propTypes = {
   defaultActive: PropTypes.bool,
   disabled: PropTypes.bool,
   inline: PropTypes.bool,
+  justifyContent: PropTypes.string,
   activeStateIcon: PropTypes.element,
   inactiveStateIcon: PropTypes.element,
   labelAlignment: PropTypes.oneOf(['left', 'right']),

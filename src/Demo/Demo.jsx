@@ -6,7 +6,7 @@ import Switch from '../Switch'
 import { ReactComponent as FlashIcon } from './assets/flash.svg'
 import { ReactComponent as FlashOffIcon } from './assets/flash-off.svg'
 
-const StyledDemo = styled.div`
+const StyledDemo = styled.main`
   color: #333333;
 
   div {

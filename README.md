@@ -36,6 +36,7 @@ For example usage see: `/src/Demo`.
 | `defaultActive` | boolean | Controls whether the switch starts with an active state. Defaults to false. |
 | `disabled` | boolean | Controls whether the switch is non-interactive. Defaults to false. |
 | `inline` | boolean | Controls whether the switch occupies only the necessary width. Defaults to false. |
+| `justifyContent` | string | Controls the spacing between switch and label. Defaults to 'space-between'. |
 | `activeStateIcon` | SVG element | Icon to be shown when the switch is in an active state. |
 | `inactiveStateIcon` | SVG element | Icon to be shown when the switch is in an inactive state. |
 | `label` | string | Text to be shown next to the switch. |
