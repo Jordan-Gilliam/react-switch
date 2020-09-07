@@ -7,7 +7,7 @@ import { getRandomHexString } from './utils'
 const StyledSwitch = styled.div`
   display: ${props => props.inline ? 'inline-flex' : 'flex'};
   align-items: center;
-  justify-content: ${props => props.justifyContent || 'space-between'};
+  justify-content: ${props => props.justifyContent};
 
   opacity: ${props => props.disabled ? '0.4' : '1'};
 
@@ -76,7 +76,7 @@ function Switch(props) {
     defaultActive = false,
     disabled = false,
     inline = false,
-    justifyContent,
+    justifyContent = 'space-between',
     activeStateIcon,
     inactiveStateIcon,
     label,
