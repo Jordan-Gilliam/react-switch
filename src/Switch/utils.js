@@ -1,7 +1,7 @@
 export function getRandomHexString(len) {
+  if (typeof len !== 'number' || len < 1) return ''
+
   len = Math.floor(len)
-  
-  if (len < 1 || typeof len !== 'number') return ''
 
   const charSet = 'abcdef0123456789'
   let hexString = ''
