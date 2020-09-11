@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, screen } from '@testing-library/react'
+import { render, screen, wait } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 import Switch from './Switch'
@@ -50,5 +50,21 @@ describe('Switch', () => {
 
     const _switch = screen.getByRole('switch')
     expect(_switch).toHaveAttribute('aria-checked', 'true')
+  })
+
+  it('should call `onChange` correctly', async () => {
+    const onChange = jest.fn()
+
+    render(<Switch onChange={onChange} />)
+
+    expect(onChange).toHaveBeenCalledWith(false)
+    expect(onChange).toHaveBeenCalledTimes(1)
+
+    const _switch = screen.getByRole('switch')
+
+    userEvent.click(_switch)
+    // await for `useEffect` to call `onChange`
+    await wait(() => expect(onChange).toHaveBeenCalledWith(true))
+    await wait(() => expect(onChange).toHaveBeenCalledTimes(2))
   })
 })
