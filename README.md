@@ -2,6 +2,12 @@
 
 ![Screenshot](./src/Demo/assets/screenshot.png)
 
+<p style='text-align: center;'>
+  <a href='https://breakshift.github.io/react-switch/'>
+    Live Demo
+  </a>
+</p>
+
 A switch component represents a boolean state, true/false, on/off. Perfect for functionality that requires immediate feedback. It differs from a checkbox in that a checkbox has a third, indefinite state.
 
 Use cases include changing settings, toggling between themes, etc. 
