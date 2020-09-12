@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/react-switch/static/css/main.778e39ca.chunk.css",
+    "main.js": "/react-switch/static/js/main.02025515.chunk.js",
+    "main.js.map": "/react-switch/static/js/main.02025515.chunk.js.map",
+    "runtime-main.js": "/react-switch/static/js/runtime-main.3ecc3585.js",
+    "runtime-main.js.map": "/react-switch/static/js/runtime-main.3ecc3585.js.map",
+    "static/js/2.3fb8ce3f.chunk.js": "/react-switch/static/js/2.3fb8ce3f.chunk.js",
+    "static/js/2.3fb8ce3f.chunk.js.map": "/react-switch/static/js/2.3fb8ce3f.chunk.js.map",
+    "index.html": "/react-switch/index.html",
+    "precache-manifest.d518678c6052e4555a5f014191ecdd22.js": "/react-switch/precache-manifest.d518678c6052e4555a5f014191ecdd22.js",
+    "service-worker.js": "/react-switch/service-worker.js",
+    "static/css/main.778e39ca.chunk.css.map": "/react-switch/static/css/main.778e39ca.chunk.css.map",
+    "static/js/2.3fb8ce3f.chunk.js.LICENSE.txt": "/react-switch/static/js/2.3fb8ce3f.chunk.js.LICENSE.txt",
+    "static/media/flash-off.601cb01d.svg": "/react-switch/static/media/flash-off.601cb01d.svg",
+    "static/media/flash.0483a921.svg": "/react-switch/static/media/flash.0483a921.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3ecc3585.js",
+    "static/js/2.3fb8ce3f.chunk.js",
+    "static/css/main.778e39ca.chunk.css",
+    "static/js/main.02025515.chunk.js"
+  ]
+}
