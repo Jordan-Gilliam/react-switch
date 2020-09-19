@@ -2,9 +2,9 @@
 
 ![Screenshot](./src/Demo/assets/screenshot.png)
 
-<p style='text-align: center;'>
-  <a href='https://breakshift.github.io/react-switch/'>
-    Live Demo
+<p align='center'>
+  <a aria-label='Live demo' href='https://breakshift.github.io/react-switch/'>
+    <img src='https://img.shields.io/badge/LIVE%20DEMO-000000.svg?style=for-the-badge'>
   </a>
 </p>
 
