@@ -12,7 +12,7 @@ A switch component represents a boolean state, true/false, on/off. Perfect for f
 
 Use cases include changing settings, toggling between themes, etc. 
 
-__Warning__: I'm doing this to train my frontend skills. Although it seems to be working fine for me, I didn't have the time to test things exhaustively and cannot guarantee that it will work as expected.
+__Warning__: Although it seems to be working fine for me, I didn't have the time to test things exhaustively and cannot guarantee that it will work as expected.
 
 Also, note that __I did not test its usage within forms__. For that, you should probably use checkboxes as they are best suited for functionality that doesn't require immediate feedback.
 
